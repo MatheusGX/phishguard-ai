@@ -1,1 +1,1 @@
-# URLScanner
+# PhishingGuard AI
