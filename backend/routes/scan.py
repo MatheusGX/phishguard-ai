@@ -1,3 +1,4 @@
+from backend.security.analysis_service import analyze_url
 from flask import Blueprint, request, jsonify
 from services.url_scanner import scan_url
 
@@ -9,7 +10,11 @@ def scan():
     url = data.get('url')
 
     if not url:
-        return jsonify({'error': 'URL is required'}), 400
-    
-    result = scan_url(url)
+        return jsonify({"error": "URL is required"}), 400
+
+    result = analyze_url(url)
+
+    if "error" in result:
+        return jsonify(result), 400
+
     return jsonify(result)
