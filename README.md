@@ -48,13 +48,12 @@ O sistema segue uma arquitetura modular composta por:
 ## Estrutura do Projeto
 
 phishguard-ai/
-│
-├── backend/
-├── frontend/
-├── docs/
-├── tests/
-├── requirements.txt
-└── README.md
+backend/
+frontend/
+docs/
+tests/
+requirements.txt
+README.md
 
 ## Como executar o Projeto
 
