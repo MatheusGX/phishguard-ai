@@ -1,3 +1,4 @@
+console.log("MAIN.JS carregado");
 async function scanURL() {
     const url = document.getElementById("urlInput").value;
     const resultDiv = document.getElementById("result");

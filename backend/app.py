@@ -1,13 +1,17 @@
-from flask import Flask, send_from_directory
+from flask import Flask, render_template
 from routes.scan import scan_blueprint
 import os
 
-app = Flask(__name__)
+app = Flask(
+    __name__,
+    template_folder="../frontend/templates",
+    static_folder="../frontend/static"
+)
 app.register_blueprint(scan_blueprint)
 
 @app.route('/')
 def home():
-    return send_from_directory("../frontend/templates", "index.html")
+    return render_template("index.html")
 
 if __name__ == '__main__':
     app.run(debug=True)
