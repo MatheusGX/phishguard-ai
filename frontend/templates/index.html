@@ -10,7 +10,7 @@
     <div class="bg-white shadow-xl rounded-xl p-8 w-full max-w-2xl">
 
         <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">
-            PhishGuardAI
+            Phish🛡️GuardAI
         </h1>
 
         <input 
@@ -28,7 +28,17 @@
             Analisar
         </button>
 
-        <div id="result" class="mt-6 text-center text-lg font-semibold"></div>
+        <div id="result" class="mt-8 hidden">
+            <div id="classification" class="text-xl font-bold mb-2"></div>
+
+            <div class="w-full bg-gray-200 rounded-full h-4 mb-2 overflow-hidden">
+                <div id="riskBar" class="h-4 w-0 bg-green-500 rounded-full transition-all duration-700 ease-in-out" ></div>
+            </div>
+            
+            <div id="scoreText" class="text-sm text-gray-600"></div>
+
+            <div id="featuresBox" class="mt-4 text-left text-sm text-gray-700"></div>
+        </div>
 
         <div class="mt-6 text-center text-xs text-gray-500">
             Protótipo – Plataforma de Deteção de Phishing com IA
