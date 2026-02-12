@@ -1,6 +1,6 @@
 from .input_validation import validate_url
-from services import feature_extractor
-from services import risk_scoring
+from services.feature_extractor import extract_features
+from services.risk_scoring import calculate_risk
 
 def analyze_url(url: str):
     is_valid, result = validate_url(url)
@@ -13,8 +13,8 @@ def analyze_url(url: str):
         }
     sanitized_url = result
 
-    features = feature_extractor(sanitized_url)
-    score, classification = risk_scoring(features)
+    features = extract_features(sanitized_url)
+    score, classification = calculate_risk(features)
 
     return{
         "url": sanitized_url,

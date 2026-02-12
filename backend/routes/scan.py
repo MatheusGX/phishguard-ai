@@ -1,6 +1,5 @@
-from backend.security.analysis_service import analyze_url
+from security.analysis_service import analyze_url
 from flask import Blueprint, request, jsonify
-from services.url_scanner import scan_url
 
 scan_blueprint = Blueprint('scan', __name__)
 
