@@ -7,6 +7,24 @@ def calculate_risk(features):
     if features['has_ip']:
         score += 25
 
+    if features['count_@'] > 0:
+        score += 10
+
+    if features['count_hyphen'] > 0:
+        score += 10
+
+    if features['count_dot'] > 3:
+        score += 5
+
+    if features['count_www'] > 0:
+        score += 5
+
+    if features['count_digits'] > 5:
+        score += 10
+
+    if features['count_underscore'] > 0:
+        score += 5
+
     if features['num_subdomains'] > 2:
         score += 15
     

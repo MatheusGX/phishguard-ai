@@ -72,6 +72,8 @@ async function scanURL() {
             featuresHTML += `<li>${key}: ${data.features[key]}</li>`;
         }
         featuresHTML += "</ul>"+
+                            "<hr class='my-3'>"+
+                            "<p><strong>"+data.explanation+"</strong></p>"+
                             "</div>";
 
         featuresBox.innerHTML = featuresHTML;

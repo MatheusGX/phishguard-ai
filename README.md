@@ -1,20 +1,24 @@
 # PhishingGuard AI
-### Plataforma de Deteçao de Phishing Baseada em Inteligencia Artificial
+### Plataforma de Detecção de Phishing Baseada em Inteligencia Artificial
 
-PhishGuard AI é um software com um sistema que permite analisar URLs suspeitos e
-classifica-los como legitimos ou potenciamente maliciosos (phishing), combinando heuristicas e técnicas de inteligencia artificial.
+PhishGuard AI é um projeto acadêmico de uma aplicação web para analise de URLs suspeitos, combinando análise heurística e um modelo de Machine Learning treinado com dataset público de larga escala.
+
+O sistema classifica URLs como:
+🟢 Legítimo
+🟡 Suspeito
+🔴 Phishing Provável
 
 ## Objetivo
 
-O objetivo do projeto é demonstrar a arquitetura e implementaçao de um sistema modular de deteçao de phishing, integrando:
+O objetivo do projeto é demonstrar a arquitetura e implementação de um sistema modular de detecção de phishing, baseado em:
 
 - Análise heurística de URLs
 - Extração de features
-- Sistema de Risk Scoring
-- (Opcional) Modelo de Machine Learning (TF-IDF + Logistic Regression)
-- (Opcional) Integração com VirusTotal para threat intelligence externa
+- Sistema de Risk Scoring heurístico
+- Modelo supervisionado (TF-IDF + Logistic Regression)
+- Arquitetura hibrida de decisão
 
-O sistema não pretende substituir soluções comerciais, mas sim demonstrar conceitos técnicos e arquiteturais aplicados à cibersegurança.
+O projeto tem finalidade académica e demonstra conceitos aplicados à cibersegurança e inteligencia artificial.
 
 ## Arquitetura do Sistema
 
@@ -22,38 +26,45 @@ O sistema segue uma arquitetura modular composta por:
 
 - **Frontend** – Interface para inserção do URL e visualização do resultado
 - **Backend** – Processamento da requisição e coordenação da análise
+- **Security Layer** - Validação e coordenação
 - **Módulo de Análise** – Extração de features e cálculo do risco
-- **Módulo de IA** – Classificação baseada em Machine Learning
-- **Integração Externa (opcional)** – Consulta ao VirusTotal
+- **Risk Scoring** - Sistema Heurístico
+- **ML Module** – Classificação baseada em Machine Learning
+- **Logging** - Registo de análises
 
-## Funcionalidades
+## Machine Learning
 
-- Validação de URL
-- Análise de padrões suspeitos
-- Identificação de palavras-chave maliciosas
-- Cálculo de Risk Score (0–100)
-- Classificação:
-  - 🟢 Legítimo
-  - 🟡 Suspeito
-  - 🔴 Phishing provável
+Modelo treinado com dataset público contendo 6 milhões de URLs maliciosas mas só 200000 foram utilizadas
+
+Configuração:
+- TF-IDF com análise por caracteres (n-grams 3-5)
+- Logistic Regression
+- Balanceamento manual das classes
+- Threshold conservador para reduzir falsos positivos
+
+O ML auxilia a heurística
 
 ## Tecnologias Utilizadas
 
 - Python 3.x
 - Flask
 - Scikit-learn
-- HTML / CSS / JavaScript
-- API VirusTotal
+- HTML / tailwind / JavaScript
+- Pandas
 
 ## Estrutura do Projeto
 
-phishguard-ai/
-backend/
-frontend/
-docs/
-tests/
-requirements.txt
-README.md
+PhishGuard-ai/
+├── backend/
+│   ├── models/
+│   ├── services/
+│   ├── security/
+│   └── routes/
+├── frontend/
+│   ├── templates/
+│   └── static/
+├── requirements.txt
+└── README.md
 
 ## Como executar o Projeto
 
