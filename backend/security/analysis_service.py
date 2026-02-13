@@ -27,13 +27,14 @@ def analyze_url(url: str):
         ml_result = "Modelo não disponível"
         ml_probability = 0
     else:
-        ml_prediction, ml_probability = ml_output
-        if ml_prediction == 1:
-            score += 25
+        ml_prediction ,ml_probability = ml_output
+        if ml_probability >= 0.90: 
+            score += 20
             ml_result = "Phishing"
-        else:
+        elif ml_probability <= 0.10:
             ml_result = "Legítimo"
-            ml_probability = 1 - ml_probability # Probabilidade de ser legítimo
+        else:
+            ml_result = "Inconclusivo"
     
     score = min(score, 100) # Limita o score a 100
 

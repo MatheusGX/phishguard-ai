@@ -60,11 +60,19 @@ async function scanURL() {
         scoreText.innerHTML = `Risk Score: ${score}%`;
 
         // Features
-        let featuresHTML = "<strong>Detalhes Técnicos:</strong><ul class='list-disc pl-5 mt-2'>";
+        let featuresHTML = "<div class='mt-4 p-4 bg-gray-50 rounded-lg border'>"+
+                                        "<h3 class='font-semibold mb-2'>Análise Detalhada</h3>"+
+                                        
+                                        /*0"<p><strong>Score Heurístico:</strong> " + data.heuristic_score + "%</p>"+*/
+                                        "<p><strong>Previsão ML:</strong> " + data.ml_prediction + " (" + data.ml_probability + "% de confiança)</p>"+
+                                        "<hr class='my-3'>"+
+                                        "<h4 class='font-semibold mb-1'>Features Extraídas:</h4>"+
+                                        "<ul class='list-disc list-inside text-sm text-gray-700'>";
         for (const key in data.features) {
             featuresHTML += `<li>${key}: ${data.features[key]}</li>`;
         }
-        featuresHTML += "</ul>";
+        featuresHTML += "</ul>"+
+                            "</div>";
 
         featuresBox.innerHTML = featuresHTML;
 

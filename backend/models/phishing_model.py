@@ -32,6 +32,14 @@ class PhishingModel:
 
         data = data.dropna()
 
+        # Diagnostivo do dataset
+        print("Distribuição após mapeamento:")
+        print(data["label"].value_counts())
+
+        data["url"] =data["url"].str.lower()
+        #garantir que as URLs comecem com http:// ou https://
+        data["url"] = data["url"].apply(lambda x: x if x.startswith("http://") or x.startswith("https://") else "http://" + x)
+
         x = data["url"]
         y = data["label"]
 
