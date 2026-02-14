@@ -43,6 +43,7 @@ def analyze_url(url: str):
     
     # Machine Learning
     ml_output = ml_model.predict(sanitized_url)
+    print(f"ML Output: {ml_output}")
     if ml_output is None:
         ml_result = "Modelo não disponível"
         ml_probability = 0

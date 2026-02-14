@@ -19,27 +19,27 @@ class PhishingModel:
     def train(self, dataset_path):
 
         print("A carregar o dataset...")
-        data = pd.read_csv(dataset_path, nrows=200000)
+        data = pd.read_csv(dataset_path, nrows=450177)
 
         data.columns = ["url", "label"]
 
         data["label"] = data["label"].map({
             "phishing": 1,
-            "malware": 1,
-            "defacement": 1,
-            "benign": 0
+            #"malware": 1,
+            #"defacement": 1,
+            #"benign": 0
+            "legitimate": 0
         })
 
         data = data.dropna()
 
-        # Diagnostivo do dataset
+        # Diagnostico do dataset
         print("Distribuição após mapeamento:")
         print(data["label"].value_counts())
 
         data["url"] =data["url"].str.lower()
         #garantir que as URLs comecem com http:// ou https://
         data["url"] = data["url"].apply(lambda x: x if x.startswith("http://") or x.startswith("https://") else "http://" + x)
-
         x = data["url"]
         y = data["label"]
 
