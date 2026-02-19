@@ -68,7 +68,13 @@ PhishGuard-ai/
 
 ## Como executar o Projeto
 
-### 1 Clonar o repositorio
+### Remotamente
+
+acessar através de https://phishguard-ai-qu8w.onrender.com
+
+### Localmente
+
+### 1 Clonar o repositório
 
 git clone https://github.com/MatheusGX/phishguard-ai.git
 
@@ -81,7 +87,7 @@ venv\Scripts\acvivate
 
 pip install -r requirements.txt
 
-### Executar aplicaçao
+### Executar aplicação
 
 python backend/app.py
 
