@@ -13,7 +13,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 LOG_DIR = os.path.join(BASE_DIR, "logs")
 
 os.makedirs(LOG_DIR, exist_ok=True)
-LOG_FILE = os.path.join(LOG_DIR, "analysis.json")
+LOG_FILE = os.path.join(LOG_DIR, "urls_analysis.json")
 
 # Configuração de logs
 logger = getLogger("analysis_logger")

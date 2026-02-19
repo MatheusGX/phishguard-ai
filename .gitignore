@@ -3,4 +3,4 @@ _pycache_/
 venv/
 .env
 backend/data/
-/backend/security/logs
+url_analysis.json
